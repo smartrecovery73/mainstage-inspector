@@ -1,33 +1,33 @@
-name: Proponi una miglioria
-description: Suggerisci una funzione o un miglioramento di MainStage Inspector.
-title: "[Proposta] "
+name: Suggest an improvement
+description: Suggest a feature or improvement for MainStage Inspector.
+title: "[Feature] "
 body:
   - type: markdown
     attributes:
       value: |
-        Grazie per il suggerimento! Cerca prima nelle proposte esistenti.
-        Descrivi l’esigenza pratica e non includere concerti o informazioni personali.
+        Thank you for your suggestion! Please search existing proposals first. You may write in English or Italian.
+        Describe your practical need without including concerts or personal information.
   - type: textarea
     id: need
     attributes:
-      label: Quale esigenza vorresti risolvere?
-      placeholder: "Quando preparo un concerto, vorrei poter…"
+      label: What need would this address?
+      placeholder: "When preparing a concert, I would like to…"
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Come immagini il miglioramento?
-      description: Descrivi il comportamento desiderato con un esempio concreto.
+      label: Proposed improvement
+      description: Describe the desired behavior with a concrete example.
     validations:
       required: true
   - type: textarea
     id: alternatives
     attributes:
-      label: Come gestisci questa esigenza oggi?
-      description: Se hai già una soluzione alternativa, descrivila brevemente.
+      label: Current workaround or alternatives
+      description: Briefly describe any workaround you currently use.
   - type: textarea
     id: context
     attributes:
-      label: Contesto ed esempi
-      description: Se utili, indica la versione dell’app e aggiungi screenshot o schemi privi di dati riservati.
+      label: Context and examples
+      description: If useful, include your app version and screenshots or diagrams without private information.

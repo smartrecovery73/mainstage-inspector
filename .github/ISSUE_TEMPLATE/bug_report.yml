@@ -1,84 +1,84 @@
-name: Segnala un problema
-description: Segnala un errore o un risultato inatteso in MainStage Inspector.
+name: Report a bug
+description: Report an error or unexpected result in MainStage Inspector.
 title: "[Bug] "
 body:
   - type: markdown
     attributes:
       value: |
-        Grazie per il tuo aiuto! Cerca prima nelle segnalazioni esistenti.
-        Non allegare concerti completi o report con dati personali. Puoi aggiungere screenshot e messaggi di errore dopo aver rimosso percorsi, nomi e altre informazioni riservate.
+        Thank you for helping! Please search existing issues first. You may write in English or Italian.
+        Do not attach complete concerts or reports containing personal data. Remove private paths, names and other sensitive information from screenshots and error messages.
   - type: input
     id: app_version
     attributes:
-      label: Versione di MainStage Inspector
-      placeholder: "Esempio: 1.0.0 (build 13)"
+      label: MainStage Inspector version
+      placeholder: "Example: 1.0.0 (build 13)"
     validations:
       required: true
   - type: input
     id: macos
     attributes:
-      label: Versione di macOS e chip del Mac
-      description: Trovi queste informazioni nel menu Apple, Informazioni su questo Mac.
-      placeholder: "Esempio: macOS 15.7, Apple M1"
+      label: macOS version and Mac chip
+      description: Find these details in Apple menu > About This Mac.
+      placeholder: "Example: macOS 15.7, Apple M1"
     validations:
       required: true
   - type: dropdown
     id: installation
     attributes:
-      label: Come hai installato l’app?
+      label: How did you install the app?
       options:
-        - Installer ufficiale .pkg
-        - Compilazione dai sorgenti
-        - Altro o non so
+        - Official .pkg installer
+        - Built from source
+        - Other or unsure
     validations:
       required: true
   - type: dropdown
     id: area
     attributes:
-      label: Dove si verifica il problema?
+      label: Which area is affected?
       options:
-        - Installazione o avvio
-        - Apertura e analisi di un concerto
-        - Set, Patch o channel strip
-        - Nomi dei plugin o preset
-        - Ingressi MIDI o zone tastiera
-        - Ricerca o riepilogo
-        - Esportazione dei report
-        - Interfaccia o accessibilità
-        - Altro
+        - Installation or startup
+        - Opening or analyzing a concert
+        - Sets, Patches or channel strips
+        - Plugin names or presets
+        - MIDI inputs or keyboard zones
+        - Search or summary
+        - Report export
+        - Interface or accessibility
+        - Other
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: Passaggi per riprodurre il problema
+      label: Steps to reproduce
       placeholder: |
-        1. Apro l’app…
-        2. Seleziono…
-        3. Si verifica…
+        1. Open the app…
+        2. Select…
+        3. Observe…
     validations:
       required: true
   - type: textarea
     id: actual
     attributes:
-      label: Cosa succede?
-      description: Riporta anche l’eventuale messaggio di errore, senza dati personali.
+      label: Actual behavior
+      description: Include any error message, with personal information removed.
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Cosa ti aspettavi?
+      label: Expected behavior
     validations:
       required: true
   - type: textarea
     id: concert_context
     attributes:
-      label: Informazioni sul concerto e sui plugin coinvolti
-      description: Se pertinenti, indica versione di MainStage, produttore e versione del plugin, se è installato sul Mac e se il concerto era stato salvato dopo le modifiche. Non serve indicare il nome del tuo concerto.
-      placeholder: "Esempio: il preset di un effetto non viene riconosciuto; produttore…, plugin…, versione…"
+      label: Concert and plugin context
+      description: If relevant, include MainStage version, plugin manufacturer and version, whether the plugin is installed, and whether the concert was saved after changes. You do not need to provide your concert name.
+      placeholder: "Example: an effect preset is not recognized; manufacturer…, plugin…, version…"
   - type: textarea
     id: attachments
     attributes:
-      label: Screenshot e dettagli aggiuntivi
-      description: Puoi trascinare qui immagini prive di dati riservati. Specifica se succede con tutti i concerti o soltanto con alcuni. Non è necessario allegare il file .concert.
+      label: Screenshots and additional details
+      description: Attach images without private information if useful. Say whether this affects all concerts or only some. Attaching the .concert file is not required.
