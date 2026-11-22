@@ -1,0 +1,84 @@
+name: Segnala un problema
+description: Segnala un errore o un risultato inatteso in MainStage Inspector.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il tuo aiuto! Cerca prima nelle segnalazioni esistenti.
+        Non allegare concerti completi o report con dati personali. Puoi aggiungere screenshot e messaggi di errore dopo aver rimosso percorsi, nomi e altre informazioni riservate.
+  - type: input
+    id: app_version
+    attributes:
+      label: Versione di MainStage Inspector
+      placeholder: "Esempio: 1.0.0 (build 13)"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: Versione di macOS e chip del Mac
+      description: Trovi queste informazioni nel menu Apple, Informazioni su questo Mac.
+      placeholder: "Esempio: macOS 15.7, Apple M1"
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Come hai installato l’app?
+      options:
+        - Installer ufficiale .pkg
+        - Compilazione dai sorgenti
+        - Altro o non so
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Dove si verifica il problema?
+      options:
+        - Installazione o avvio
+        - Apertura e analisi di un concerto
+        - Set, Patch o channel strip
+        - Nomi dei plugin o preset
+        - Ingressi MIDI o zone tastiera
+        - Ricerca o riepilogo
+        - Esportazione dei report
+        - Interfaccia o accessibilità
+        - Altro
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passaggi per riprodurre il problema
+      placeholder: |
+        1. Apro l’app…
+        2. Seleziono…
+        3. Si verifica…
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Cosa succede?
+      description: Riporta anche l’eventuale messaggio di errore, senza dati personali.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Cosa ti aspettavi?
+    validations:
+      required: true
+  - type: textarea
+    id: concert_context
+    attributes:
+      label: Informazioni sul concerto e sui plugin coinvolti
+      description: Se pertinenti, indica versione di MainStage, produttore e versione del plugin, se è installato sul Mac e se il concerto era stato salvato dopo le modifiche. Non serve indicare il nome del tuo concerto.
+      placeholder: "Esempio: il preset di un effetto non viene riconosciuto; produttore…, plugin…, versione…"
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshot e dettagli aggiuntivi
+      description: Puoi trascinare qui immagini prive di dati riservati. Specifica se succede con tutti i concerti o soltanto con alcuni. Non è necessario allegare il file .concert.

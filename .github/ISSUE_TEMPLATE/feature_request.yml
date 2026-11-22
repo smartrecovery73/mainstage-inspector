@@ -1,0 +1,33 @@
+name: Proponi una miglioria
+description: Suggerisci una funzione o un miglioramento di MainStage Inspector.
+title: "[Proposta] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per il suggerimento! Cerca prima nelle proposte esistenti.
+        Descrivi l’esigenza pratica e non includere concerti o informazioni personali.
+  - type: textarea
+    id: need
+    attributes:
+      label: Quale esigenza vorresti risolvere?
+      placeholder: "Quando preparo un concerto, vorrei poter…"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Come immagini il miglioramento?
+      description: Descrivi il comportamento desiderato con un esempio concreto.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Come gestisci questa esigenza oggi?
+      description: Se hai già una soluzione alternativa, descrivila brevemente.
+  - type: textarea
+    id: context
+    attributes:
+      label: Contesto ed esempi
+      description: Se utili, indica la versione dell’app e aggiungi screenshot o schemi privi di dati riservati.
