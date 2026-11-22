@@ -4,6 +4,16 @@ Versione pubblica iniziale: **1.0.0**, build **13**.
 
 App macOS per esplorare i concerti Apple MainStage in sola lettura, senza eseguire i plugin audio. Mostra Set, Patch, channel strip, strumenti, effetti, preset riconosciuti e assegnazioni MIDI salvate. Include filtri, riepilogo del concerto e report HTML/JSON.
 
+## Screenshot
+
+Avvio dell’app:
+
+![Schermata iniziale di MainStage Inspector](docs/screenshots/Main.png)
+
+Analisi di un concerto e dettagli della channel strip:
+
+![Concerto aperto con Patch e channel strip](docs/screenshots/Concert.png)
+
 ## Requisiti e utilizzo
 
 La distribuzione autonoma richiede macOS 15 o successivo e Apple Silicon (M1 o successivo). MainStage e Python non devono essere installati per analizzare i file con l’app distribuita.
@@ -48,6 +58,12 @@ Il formato dei concerti non dispone di una specifica pubblica completa. Il ricon
 ## Materiale distribuito
 
 Questo repository contiene sorgenti, test sintetici e il manuale dell’app. Non contiene concerti personali, report, manuali Apple o runtime precompilati. Il runtime Python e Zstandard vengono inclusi durante il packaging insieme alle relative licenze.
+
+## Segnalazioni e proposte
+
+Apri la [pagina delle segnalazioni](https://github.com/smartrecovery73/mainstage-inspector/issues/new/choose) e scegli **Segnala un problema** oppure **Proponi una miglioria**. Per i bug, indica versione dell’app, macOS, chip del Mac e passaggi per riprodurre il problema. Aggiungi i dettagli di MainStage e dei plugin soltanto se pertinenti.
+
+Evita di allegare concerti completi e controlla che screenshot o messaggi non contengano dati personali. Non serve condividere il tuo concerto per aprire una segnalazione.
 
 ## Licenza e autore
 
