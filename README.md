@@ -4,6 +4,14 @@ Versione pubblica iniziale: **1.0.0**, build **13**.
 
 App macOS per esplorare i concerti Apple MainStage in sola lettura, senza eseguire i plugin audio. Mostra Set, Patch, channel strip, strumenti, effetti, preset riconosciuti e assegnazioni MIDI salvate. Include filtri, riepilogo del concerto e report HTML/JSON.
 
+## Download
+
+**[Scarica MainStage Inspector 1.0.0 per Apple Silicon](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/MainStage-Inspector-1.0.0-AppleSilicon.pkg)**
+
+[Release e allegati](https://github.com/smartrecovery73/mainstage-inspector/releases/tag/v1.0.0) · [Manuale HTML](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/Manuale-MainStage-Inspector.html) · [Checksum SHA-256](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/SHA256SUMS.txt)
+
+Per installare l’app usa il file `.pkg`; gli archivi “Source code” contengono invece i sorgenti per gli sviluppatori.
+
 ## Screenshot
 
 Avvio dell’app:
@@ -53,7 +61,7 @@ Il formato dei concerti non dispone di una specifica pubblica completa. Il ricon
 
 ## Versioni
 
-1.0.0 è la prima versione destinata alla pubblicazione. I numeri 10.x appartenevano alle prove di sviluppo. Il numero interno di build continua da 13, superiore alle build precedenti. Chi ha installato le prove deve chiudere l’app prima dell’installazione; la compatibilità della sostituzione con le vecchie ricevute Installer va verificata prima della Release.
+1.0.0 è la prima versione destinata alla pubblicazione. I numeri 10.x appartenevano alle prove di sviluppo. Il numero interno di build continua da 13, superiore alle build precedenti. Chi ha installato le prove deve chiudere l’app prima dell’installazione; l’installazione sopra la versione di prova è stata verificata sul Mac del progetto, insieme all’avvio vuoto e all’apertura di un altro concerto. Questo controllo non copre tutte le configurazioni macOS.
 
 ## Materiale distribuito
 
