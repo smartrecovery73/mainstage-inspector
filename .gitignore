@@ -1,0 +1,19 @@
+# Build e distribuzioni (installer allegati alle GitHub Releases)
+*.app/
+dist/
+build/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+# Concerti, stati audio, report e materiale privato
+*.concert/
+*.patch/
+*.cst
+*.layout/
+output/
+*.pdf
+*.pkg
+*.dmg
+.env
+.env.*
