@@ -1,85 +1,88 @@
 # MainStage Inspector
 
-Versione pubblica iniziale: **1.0.0**, build **13**.
+**English** · [Italiano](README.it.md)
 
-App macOS per esplorare i concerti Apple MainStage in sola lettura, senza eseguire i plugin audio. Mostra Set, Patch, channel strip, strumenti, effetti, preset riconosciuti e assegnazioni MIDI salvate. Include filtri, riepilogo del concerto e report HTML/JSON.
+First public release: **1.0.0**, build **13**. Created by **Luantani**.
+
+A native macOS app for exploring Apple MainStage concert packages in read-only mode, without running audio plugins. Inspect Sets, Patches, channel strips, instruments, effects, supported saved presets and MIDI assignments. Includes search, concert summaries and HTML/JSON exports.
+
+**App interface: Italian. Documentation: English and Italian.** This release does not include an English app interface.
 
 ## Download
 
-**[Scarica MainStage Inspector 1.0.0 per Apple Silicon](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/MainStage-Inspector-1.0.0-AppleSilicon.pkg)**
+**[Download MainStage Inspector 1.0.0 for Apple Silicon](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/MainStage-Inspector-1.0.0-AppleSilicon.pkg)**
 
-[Release e allegati](https://github.com/smartrecovery73/mainstage-inspector/releases/tag/v1.0.0) · [Manuale HTML](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/Manuale-MainStage-Inspector.html) · [Checksum SHA-256](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/SHA256SUMS.txt)
+[Release and assets](https://github.com/smartrecovery73/mainstage-inspector/releases/tag/v1.0.0) · [English manual](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/MainStage-Inspector-Manual-EN.html) · [Italian manual](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/Manuale-MainStage-Inspector.html) · [Installer SHA-256](https://github.com/smartrecovery73/mainstage-inspector/releases/download/v1.0.0/SHA256SUMS.txt)
 
-Per installare l’app usa il file `.pkg`; gli archivi “Source code” contengono invece i sorgenti per gli sviluppatori.
+Use the `.pkg` file to install the app. GitHub’s “Source code” archives are intended for developers.
 
-## Screenshot
+## Screenshots
 
-Avvio dell’app:
+The app starts with no concert loaded:
 
-![Schermata iniziale di MainStage Inspector](docs/screenshots/Main.png)
+![MainStage Inspector welcome screen, in Italian](docs/screenshots/Main.png)
 
-Analisi di un concerto e dettagli della channel strip:
+Concert analysis and channel strip details:
 
-![Concerto aperto con Patch e channel strip](docs/screenshots/Concert.png)
+![Concert, Patch and channel strip details, in Italian](docs/screenshots/Concert.png)
 
-## Requisiti e utilizzo
+## Requirements and usage
 
-La distribuzione autonoma richiede macOS 15 o successivo e Apple Silicon (M1 o successivo). MainStage e Python non devono essere installati per analizzare i file con l’app distribuita.
+The standalone installer requires **macOS 15 or later** and **Apple Silicon (M1 or later)**. MainStage, Python, Homebrew and Xcode do not need to be installed to analyze concerts with the packaged app.
 
-L’installer colloca l’app in `/Applications`. All’avvio l’app è vuota; usa **Apri concerto** e scegli un pacchetto `.concert`. Il manuale è disponibile nel menu Aiuto e in [packaging/Manuale.html](packaging/Manuale.html).
+The installer places the app in `/Applications`. Launch it and choose **Apri concerto** (Open concert) to select a `.concert` package. The app starts with no previous concert, search or selection restored. The bundled Italian manual is available in **Aiuto** (Help). Read the [English manual](packaging/Manual.en.html) or [Italian manual](packaging/Manuale.html) for more details.
 
-La distribuzione attuale usa una firma locale ad hoc; non è firmata Developer ID né notarizzata. macOS può richiedere un’autorizzazione nelle impostazioni di sicurezza. Non disabilitare le protezioni del sistema.
+This distribution is ad hoc signed. It has **no Developer ID signature or Apple notarization**. macOS may require approval in Privacy & Security or block the app according to local policies. Do not disable system security protections.
 
-## Sviluppo e test
+## Development and tests
 
-Il parser usa Python 3 e la sua libreria standard. Alcuni stati compressi richiedono libzstd, inclusa nella distribuzione autonoma.
+The parser uses Python 3 and its standard library. Some compressed plugin states require libzstd, which is bundled with the standalone distribution.
 
 ```sh
 python3 -m unittest discover -v
-python3 mainstage_inspector.py /percorso/Example.concert --cli
-python3 mainstage_inspector.py /percorso/Example.concert --json
-python3 mainstage_inspector.py /percorso/Example.concert --html
+python3 mainstage_inspector.py /path/to/Example.concert --cli
+python3 mainstage_inspector.py /path/to/Example.concert --json
+python3 mainstage_inspector.py /path/to/Example.concert --html
 ```
 
-Per compilare l’interfaccia nativa servono macOS su Apple Silicon, Swift SDK tramite Xcode o Command Line Tools e Python:
+To build the native interface, use an Apple Silicon Mac with Python and the Swift SDK provided by Xcode or Command Line Tools:
 
 ```sh
 python3 build_mac_app.py
 ```
 
-Questa compilazione di sviluppo usa il Python locale. Per generare invece il pacchetto autonomo:
+This development build uses your local Python installation. To create the standalone installer:
 
 ```sh
 python3.13 package_macos.py
 ```
 
-Il packaging richiede CPython **3.13 framework di python.org**, libzstd in `/opt/homebrew/lib/libzstd.dylib` con i relativi file LICENSE/COPYING, e gli strumenti Apple `swiftc`, `otool`, `lipo`, `install_name_tool`, `codesign`, `pkgbuild`, `productbuild`, `pkgutil` e `xar`. Non scarica dipendenze automaticamente. Gli artefatti vengono scritti in `dist/`. Il processo verifica firma, dipendenze rilocabili, destinazione Applicazioni e analisi di un concerto sintetico prima e dopo l’estrazione del pacchetto.
+Packaging requires the **python.org CPython 3.13 framework**, libzstd at `/opt/homebrew/lib/libzstd.dylib` with its LICENSE/COPYING files, and Apple’s `swiftc`, `otool`, `lipo`, `install_name_tool`, `codesign`, `pkgbuild`, `productbuild`, `pkgutil` and `xar` tools. It does not download dependencies automatically. Output is written to `dist/`. Packaging checks signatures, relocatable dependencies, the Applications destination, and synthetic concert analysis before and after extracting the installer.
 
-## Limiti
+## Limitations
 
-Il formato dei concerti non dispone di una specifica pubblica completa. Il riconoscimento di plugin, preset e bypass dipende dal formato salvato; i dati non decodificabili non attestano l’assenza di plugin. I nomi Audio Unit possono dipendere dai componenti installati sul Mac. Le assegnazioni MIDI descrivono i dati salvati, non i dispositivi fisicamente collegati. Gli override tra Concerto, Set e Patch non vengono risolti completamente.
+The concert format has no complete public specification. Plugin, preset and bypass recognition depends on the saved format. Unreadable data must not be interpreted as an absent plugin. Audio Unit names may depend on the components installed on the Mac. MIDI assignments describe saved data rather than physically connected devices. Overrides between Concert, Set and Patch levels are not fully resolved.
 
-## Versioni
+## Versioning
 
-1.0.0 è la prima versione destinata alla pubblicazione. I numeri 10.x appartenevano alle prove di sviluppo. Il numero interno di build continua da 13, superiore alle build precedenti. Chi ha installato le prove deve chiudere l’app prima dell’installazione; l’installazione sopra la versione di prova è stata verificata sul Mac del progetto, insieme all’avvio vuoto e all’apertura di un altro concerto. Questo controllo non copre tutte le configurazioni macOS.
+1.0.0 is the first public release. Earlier 10.x numbers were development versions. The internal build number continues at 13. Close earlier versions before installing. Installation over a development version, an empty startup and opening another concert were tested on the project Mac; this does not cover every macOS configuration.
 
-## Materiale distribuito
+## Repository contents
 
-Questo repository contiene sorgenti, test sintetici e il manuale dell’app. Non contiene concerti personali, report, manuali Apple o runtime precompilati. Il runtime Python e Zstandard vengono inclusi durante il packaging insieme alle relative licenze.
+This repository contains source code, synthetic tests, screenshots and documentation. It does not contain personal concerts, generated reports, Apple manuals or prebuilt runtimes. Python and Zstandard are bundled during packaging with their respective licenses.
 
-## Segnalazioni e proposte
+## Bug reports and suggestions
 
-Apri la [pagina delle segnalazioni](https://github.com/smartrecovery73/mainstage-inspector/issues/new/choose) e scegli **Segnala un problema** oppure **Proponi una miglioria**. Per i bug, indica versione dell’app, macOS, chip del Mac e passaggi per riprodurre il problema. Aggiungi i dettagli di MainStage e dei plugin soltanto se pertinenti.
+Open the [issue chooser](https://github.com/smartrecovery73/mainstage-inspector/issues/new/choose) and select **Report a bug** or **Suggest an improvement**. **You may write in English or Italian.** Include the app version, macOS version, Mac chip and steps to reproduce the problem. MainStage and plugin details are useful when relevant.
 
-Evita di allegare concerti completi e controlla che screenshot o messaggi non contengano dati personali. Non serve condividere il tuo concerto per aprire una segnalazione.
+Do not attach complete concerts or reports containing private data. Check screenshots and error messages before sharing them. You do not need to share your concert to open an issue.
 
-## Licenza e autore
+## License and author
 
 Copyright (C) 2026 Luantani.
 
-MainStage Inspector e la documentazione originale del progetto sono distribuiti sotto **GNU GPL versione 3 soltanto** (`GPL-3.0-only`). Il testo integrale è in [LICENSE](LICENSE).
+MainStage Inspector and its original documentation are licensed under **GNU GPL version 3 only** (`GPL-3.0-only`). See [LICENSE](LICENSE) for the full original English license text.
 
-È consentito usare, modificare e vendere il programma. Chi distribuisce opere derivate deve rispettare la GPLv3, fornire ai destinatari il sorgente corrispondente secondo le modalità previste dalla licenza, conservare gli avvisi di copyright e licenza e indicare le modifiche. Le modifiche esclusivamente private non richiedono pubblicazione. Non è richiesto di inviare le modifiche all’autore originale.
+You may use, modify and sell the software. Distribution of derived works must comply with GPLv3, including providing recipients with the corresponding source as specified by the license, preserving copyright and license notices, and identifying modifications. Private modifications do not require publication, and changes do not have to be sent to the original author.
 
-Il programma è fornito senza garanzie, nei limiti consentiti dalla legge. I componenti di terze parti mantengono le proprie licenze, incluse nel pacchetto; la GPL del progetto non sostituisce tali licenze.
-
+The software is provided without warranty, to the extent permitted by law. Third-party components retain their own licenses, included in the packaged app.
